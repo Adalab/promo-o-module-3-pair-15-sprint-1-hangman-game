@@ -5,13 +5,13 @@ function App() {
   let numberOfErrorsOld = 0;
 
   const [numberOfErrors, setNumberOfErrors] = useState(0);
+  const [lastLetter, setLastLetter] = useState('Á');
   const handleClickBtn = (ev) => {
     ev.preventDefault();
 
     setNumberOfErrors(numberOfErrors+1);
     console.log(numberOfErrors);
   }
-
 
   return (
     <div className="page">
@@ -54,6 +54,7 @@ function App() {
               type="text"
               name="last-letter"
               id="last-letter"
+              defaultValue={lastLetter}
             />
           </form>
           <button type="button" onClick={handleClickBtn}>Incrementar</button>

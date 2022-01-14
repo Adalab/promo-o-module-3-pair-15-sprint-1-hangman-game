@@ -6,6 +6,7 @@ function App() {
 
   const [numberOfErrors, setNumberOfErrors] = useState(0);
   const [lastLetter, setLastLetter] = useState('');
+  const [word, setWord] = useState('katakroker');
 
   const handleClickBtn = (ev) => {
     ev.preventDefault();
@@ -20,6 +21,13 @@ function App() {
     }
   }
 
+  const renderSolutionLetters = () => {
+    const wordLetters = word.split('');
+    return wordLetters.map(wordLetter => {
+      return <li>{wordLetter}</li>;
+    });
+  };
+
   return (
     <div className="page">
       <header>
@@ -29,6 +37,7 @@ function App() {
         <section>
           <div className="solution">
             <h2 className="title">Solución:</h2>
+            {renderSolutionLetters}
             <ul className="letters">
               <li className="letter">k</li>
               <li className="letter">a</li>

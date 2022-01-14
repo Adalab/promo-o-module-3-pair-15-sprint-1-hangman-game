@@ -5,12 +5,19 @@ function App() {
   let numberOfErrorsOld = 0;
 
   const [numberOfErrors, setNumberOfErrors] = useState(0);
-  const [lastLetter, setLastLetter] = useState('Á');
+  const [lastLetter, setLastLetter] = useState('');
+
   const handleClickBtn = (ev) => {
     ev.preventDefault();
 
     setNumberOfErrors(numberOfErrors+1);
     console.log(numberOfErrors);
+  }
+
+  const handleChangeLetter = (ev) => {
+    if(/^[a-zA-Z]$/.test(ev.currentTarget.value)) {
+      setLastLetter(ev.currentTarget.value);
+    }
   }
 
   return (
@@ -55,6 +62,7 @@ function App() {
               name="last-letter"
               id="last-letter"
               defaultValue={lastLetter}
+              onChange={handleChangeLetter}
             />
           </form>
           <button type="button" onClick={handleClickBtn}>Incrementar</button>
